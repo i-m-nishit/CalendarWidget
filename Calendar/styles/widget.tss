@@ -1,0 +1,42 @@
+"Label": {
+	color: '#000',
+	font: {
+		fontSize: 18,
+		fontWeight: 'bold'
+	},
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+".mainView[platform=ios]":{
+	top : 64
+}
+".mainView[platform=android]":{
+	top : 44
+}
+"#eventTable[platform=android]":{
+	top:"0",
+	bottom:"0",
+	backgroundColor:"black"
+}
+"#eventTable[platform=ios]":{
+	top:"0",
+	bottom:"0",
+}
+"#dateScroll[platform=ios]":
+{
+	top:'0', 
+	width:'100%', 
+	height:'80', 
+	backgroundColor:'#333', 
+	layout:'horizontal',
+	disableBounce : true
+}
+"#dateScroll[platform=android]":
+{
+	top:'0', 
+	width:'100%', 
+	height:'81', 
+	backgroundColor:'#333', 
+	layout:'horizontal', 
+	scrollType:'horizontal'
+} 
