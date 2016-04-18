@@ -47,16 +47,13 @@ function scrollListener(e){
     
 function updateTableData(tableData){
     currentMonthData = _.groupBy(tableData, 'date');
-    // Ti.API.info('For date '+JSON.stringify(tableData));
     var todayDate = dateObject.current.todayDate;
     var dateString = todayDate.getDate();
     addDataToTable(dateString);
-    // var dateString = todayDate.getFullYear() +"-"+("0" + (todayDate.getMonth()+1)).slice(-2) +"-"+("0" + todayDate.getDate()).slice(-2) + " " +("0" + todayDate.getHours()).slice(-2) + ":" +("0" + todayDate.getMinutes()).slice(-2) + ":" +("0" + todayDate.getSeconds()).slice(-2)+ ".0";
 }
 
 function addDataToTable(_dateString){
     if(currentMonthData && currentMonthData[_dateString] && currentMonthData[_dateString].length > 0){
-        // Ti.API.info('Data Present >> '+JSON.stringify(currentMonthData[_dateString]));
         var _tableData = currentMonthData[_dateString];
         var dataArray =[];
         for(var index=0; index < _tableData.length; index++){
@@ -68,7 +65,7 @@ function addDataToTable(_dateString){
         }
         $.eventTable.data = dataArray;  
     }else{
-        Ti.API.info('Absent  Present');
+        // Ti.API.info('Absent  Present');
         noData();
     }
     
@@ -79,7 +76,6 @@ function noData(){
     $.eventTable.data =[tableViewRow];
 }
 
-// updateTableData(_tableData);
 var style = {
     height : perWidth,
     width : perWidth,
@@ -87,13 +83,12 @@ var style = {
     left : 1,
 };
 function onScrollClick(e){
-    Ti.API.info('on click >> '+JSON.stringify(e.source.properties));
+    // Ti.API.info('on click >> '+JSON.stringify(e.source.properties));
     if(currentSelectedView != e.source && e.source.properties){
         currentSelectedView.remove(selectedView);
         e.source.add(selectedView);
         currentSelectedView = e.source;
         addDataToTable(currentSelectedView.properties.date);
-        // fetchEvents();
     }
 }
 var dataToBind;
@@ -249,9 +244,6 @@ function addCalendar() {
 addCalendar();
 
 function init(){
-    if(!isLoaded){
-        // fetchEvents(evtType, (dateObject.current.monthData.month+1), index, size);
-    }
     var timeout = setTimeout(function(){
         $.dateScroll.scrollTo(val,0);
         clearTimeout(timeout);

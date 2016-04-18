@@ -1,13 +1,8 @@
 <Alloy>
 	<View top="0" bottom="0" class="container">
-		<Widget src="HeaderWidget" id="Header"></Widget>
 		<View class="mainView" layout="vertical">
 			<ScrollView id="dateScroll" onClick="onScrollClick" >
 			</ScrollView>
-			<!-- <View top="-10" height="10">
-				<ImageView width="10" height="10" top="0"/>
-				<View backgroundColor="#333" top="10" height="5"/>
-			</View> -->
 			<TableView id="eventTable">
 			</TableView>
 		</View>
